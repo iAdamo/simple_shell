@@ -1,6 +1,49 @@
 #include "unixshell.h"
 
-/*YOU CAN WRITE IN YOUR CODES HERE...... delete this comment ooo*/
+/**
+ * memfree - frees all the memory allocated to a program
+ * @cmd_opt: pointer to memory to free
+ */
+void memfree(char **cmd_opt)
+{
+	size_t i = 0;
+
+	if (cmd_opt == NULL)
+		return;
+
+	while (cmd_opt[i])
+	{
+		free(cmd_opt[i]);
+		i++;
+	}
+
+	if (cmd_opt[i] == NULL)
+		free(cmd_opt[i]);
+	free(cmd_opt);
+}
+
+/**
+ * memfree_exit - frees all the memory allocated and exit.
+ * @cmd_opt: cmd_opt memory to free
+ */
+void memfree_exit(char **cmd_opt)
+{
+	size_t i = 0;
+
+	if (cmd_opt == NULL)
+		return;
+
+	while (cmd_opt[i])
+	{
+		free(cmd_opt[i]);
+		i++;
+	}
+
+	if (cmd_opt[i] == NULL)
+		free(cmd_opt[i]);
+	free(cmd_opt);
+	exit(EXIT_FAILURE);
+}
 
 
 /**
