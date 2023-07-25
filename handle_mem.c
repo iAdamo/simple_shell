@@ -5,7 +5,7 @@
 
 /**
  * exit_shellf - Afunction that exits the shell.
- * @ptr_tok: The pointer to tokenized strings
+ * @ptr_tok: The pointer to tokenized strings.
  */
 void exit_shellf(char **ptr_tok)
 {

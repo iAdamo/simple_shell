@@ -22,7 +22,7 @@ void child_process(char **cmd_opt, char *name, char **env, int fact)
 	else if (pid == 0)
 	{
 		exec_command(cmd_opt, name, env, fact);
-		memfree(cmd_opt);
+		memfree_exit(cmd_opt);
 	}
 	else
 	{
