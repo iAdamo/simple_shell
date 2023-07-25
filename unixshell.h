@@ -11,7 +11,9 @@
 #include <signal.h>
 
 void show_prompt(void);
+char **line_token(char*, const char*);
 void signal_input(int);
 void _EOF_(char*);
+void exit_shellf(char**);
 
 #endif
