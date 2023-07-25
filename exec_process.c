@@ -46,3 +46,21 @@ void exec_command(char **cmd_opt, char *name, char **env, int fact)
 	}
 }
 
+
+/**
+ * print_env - A function that prints all enviromental variables.
+ * @env: The pointer to enviromental variables.
+ */
+void print_env(char **env)
+{
+	size_t i = 0, len = 0;
+
+	while (env[i])
+	{
+		len = _strlen(env[i]);
+		write(STDOUT_FILENO, env[i], len);
+		write(STDOUT_FILENO, "\n", 1);
+		i++;
+	}
+}
+
