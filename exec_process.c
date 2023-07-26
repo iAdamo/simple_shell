@@ -46,7 +46,6 @@ void exec_command(char **cmd_opt, char *name, char **env, int fact)
 	}
 }
 
-
 /**
  * print_env - A function that prints all enviromental variables.
  * @env: The pointer to enviromental variables.
@@ -63,7 +62,6 @@ void print_env(char **env)
 		i++;
 	}
 }
-
 
 /**
  * msgerror - A function that prints message not found.
@@ -82,5 +80,5 @@ void msgerror(char *name, int fact, char **cmd_opt)
 	write(STDOUT_FILENO, &c, 1);
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, cmd_opt[0], _strlen(cmd_opt[0]));
-	write(STDOUT_FILENO, ": not found\n", 12);
+	write(STDOUT_FILENO, ": not found\n", 12);
 }

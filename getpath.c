@@ -9,17 +9,17 @@ char **get_path(char **env)
 	char *pathvalue = NULL, **pathways = NULL;
 	unsigned int i = 0;
 
-	pathvalue = strtok(env[i], "=");
+	pathvalue = _strtok(env[i], "=");
 	while (env[i])
 	{
 		if (_strcmp(pathvalue, "PATH"))
 		{
-			pathvalue = strtok(NULL, "\n");
+			pathvalue = _strtok(NULL, "\n");
 			pathways = line_token(pathvalue, ":");
 			return (pathways);
 		}
 		i++;
-		pathvalue = strtok(env[i], "=");
+		pathvalue = _strtok(env[i], "=");
 	}
-	return (NULL);
+	return (NULL);
 }

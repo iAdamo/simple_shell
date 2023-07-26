@@ -2,7 +2,7 @@
 
 /**
  * line_token - split and create command
- * @str: delimiter for strtok
+ * @str: delimiter for _strtok
  * @buffer: pointer to input string
  * Return: address to full command
  */
@@ -25,7 +25,7 @@ char **line_token(char *buffer, const char *str)
 		exit(EXIT_FAILURE);
 	}
 
-	cmd_tok = strtok(buffer, str);
+	cmd_tok = _strtok(buffer, str);
 	while (cmd_tok != NULL)
 	{
 		command[i] = malloc(_strlen(cmd_tok) + 1);
@@ -37,7 +37,7 @@ char **line_token(char *buffer, const char *str)
 		}
 
 		_strcpy(command[i], cmd_tok);
-		cmd_tok = strtok(NULL, str);
+		cmd_tok = _strtok(NULL, str);
 		i++;
 	}
 	command[i] = NULL;
