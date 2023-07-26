@@ -5,7 +5,7 @@
  * @str: string of delimiters
  * Return: 1 on success, 0 on failure
  */
-unsigned int check_delim(char c, const char *str)
+size_t check_delim(char c, const char *str)
 {
 	size_t i;
 
@@ -13,7 +13,7 @@ unsigned int check_delim(char c, const char *str)
 	while (str[i])
 	{
 		if (c == str[i])
-			return(1);
+			return (1);
 		i++;
 	}
 	return (0);
@@ -61,5 +61,5 @@ char *_strtok(char *str, const char *delim)
 		if (*new_token == '\0')
 			new_token = NULL;
 	}
-	return (tokens);
+	return (tokens);
 }
