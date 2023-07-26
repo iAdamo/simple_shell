@@ -9,29 +9,25 @@
 */
 int main(int ac __attribute__((unused)), char **av, char **env)
 {
-	char *buffer = NULL, **command_line = NULL;
-	size_t len = 0;
-	ssize_t line = 0;
-	int var = 0;
+	char *buffer, **command_line = NULL;
+	int var = 0, line = -1;
 
 	while (1)
 	{
 		var++;
 		show_prompt();
 		signal(SIGINT, signal_input);
-		line = getline(&buffer, &len, stdin);
+		buffer = _getline();
+		line = _strlen(buffer);
 		if (line == EOF)
 			_EOF_(buffer);
-		else if (*buffer == '\n' || *buffer == ' ')
+		else if (*buffer == '\0')
 		{
-			free(buffer);
-			buffer = NULL;
 			continue;
 		}
 		else
 		{
-			buffer[_strlen(buffer) - 1] = '\0';
-			command_line = command_tokens(buffer, " \0");
+			command_line = line_token(buffer, " \0");
 			free(buffer);
 			if (_strcmp(command_line[0], "exit") != 0)
 				exit_shellf(command_line);
@@ -41,7 +37,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 				child_process(command_line, av[0], env, var);
 		}
 		fflush(stdin);
-		buffer = NULL, len = 0;
+		buffer = NULL;
 	}
 	if (line == -1)
 		return (1);
