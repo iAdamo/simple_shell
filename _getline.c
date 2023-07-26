@@ -5,7 +5,7 @@
 */
 char *_getline()
 {
-	size_t i; 
+	size_t i;
 	int read_line, buffsize = 10240;
 	char c = 0, *buffer, *buf;
 
@@ -38,7 +38,7 @@ char *_getline()
 		}
 	}
 	buffer[i] = '\0';
-	buf = void_void_space(buffer);
+	buf = void_space(buffer);
 	free(buffer);
 	void_hash(buf);
 	return (buf);
@@ -70,15 +70,12 @@ char *void_space(char *str)
 		free(buff);
 		return (NULL);
 	}
-	while(str[i] == ' ')
+	for (i = 0; str[i] == ' '; i++)
+		;
+	for (; str[i + 1] != '\0'; i++)
 	{
-		while (str[i + 1] != '\0');
-		{
-			buff[j] = str[i];
-			j++;
-			i++;
-		}
-		i++;
+		buff[j] = str[i];
+		j++;
 	}
 	buff[j] = '\0';
 	if (buff[0] == '\0' || buff[0] == '#')
@@ -101,7 +98,7 @@ void void_hash(char *buff)
 	{
 		if (buff[i] == '#' && buff[i - 1] == ' ' && buff[i + 1] == ' ')
 		{
-			buff[i] = '\0';
+			buff[i] = '\0';
 		}
 	}
 }
